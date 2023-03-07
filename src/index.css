@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Public Sans', sans-serif;
+}
+
+.css-cvumne-MuiDrawer-docked .MuiDrawer-paper{
+    background-color: transparent;
+   
+}
+/* body{
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.08) 100%), #121212;
+} */
+
+.responsive{
+  max-width: 100%;
+}
+
+.highcharts-background{fill: #121212 !important;}
+.highcharts-credits {display: none;}
+.highcharts-title{color: #fff !important; fill:rgb(253 253 253) !important}
+.highcharts-legend-item text{color: #fff !important; fill:rgb(253 253 253) !important}
+/* .MuiListItem-root{text-align: center !important;} */
+
+.tableActive{
+  border: 1px solid rgba(102, 187, 106, 0.12);
+  border-radius: 6px;
+  padding: 0px 4px;
+  width: 55px;
+}
+/* .card_wrapper{
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%), #121212;  
+} */
+
+/* scrollbar css start  */
+*::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #423838;
+}
+
+*::-webkit-scrollbar
+{
+	width: 12px;
+	border-radius: 10px;
+  background-color: #423838;
+}
+
+*::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #121212;
+}
+
+/* scrollbar css start  */
+body{
+  background:#252525 !important;
+}
+
+.line_chart_wrapper > #line-chart,
+.line_chart_wrapper > #container
+{
+  border-radius: 20px;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiCard-root.css-1dbdfna-MuiPaper-root-MuiCard-root {
+  background-image: unset;
+}
+
+div#container5 {
+  border-radius: 20px;
+  /* padding-bottom: 20px; */
+}
+
+.tmb_profile_menu {
+  position: fixed;
+  top: 118.98px;
+  background: #121212;
+  right: 55px;
+  color:#fff
+}
+
+.css-14lnjov-MuiButtonBase-root-MuiListItemButton-root:hover{
+  background-color: unset !important;
+}

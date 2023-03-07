@@ -1,0 +1,43 @@
+  [
+    {
+    "id":1,
+    "network_id" : "63218707d2e3551816b9b8af",
+    "forControl" : "Tron",
+    "Network": "Tron TRC(20)",
+    "confirmations": "5",
+    "type": "trc20",
+    "networkName": "TRX",
+    "decimals": 18,
+    "fee": 0.2,
+    "constract": "",
+    "abi": ""
+},
+{
+    "id":2,
+    "network_id" : "63218947d2e3551816b9b8b0",
+    "forControl" : "Binance",
+    "Network": "Binance Smart Chain(BEP20)",
+    "confirmations": "5",
+    "type": "bep20",
+    "networkName": "BNB",
+    "decimals": 6,
+    "fee": 0.2,
+    "constract": "0x524bC91Dc82d6b90EF29F76A3ECAaBAffFD490Bc",
+    "abi": ""
+},
+{
+    "id":3,
+    "network_id" : "6329776b201dd027dee16342",
+    "forControl" : "Ethereum",
+    "Network": "Ethereum(ERC20)",
+    "confirmations": "5",
+    "type": "erc20",
+    "networkName": "ETH",
+    "decimals": 2,
+    "fee": 0.2,
+    "constract": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "abi": ""
+}
+]
+
+
