@@ -29,9 +29,10 @@ export default function KycListTableRow({ row, selected, onEditRow, onSelectRow,
   const theme = useTheme();
   const dispatch = useDispatch();
   const updateKycStatus = async (status, userid, e) => {
+    console.log("=======status", status)
     e.preventDefault();
     let data = {
-      status: status === 'pending' ? 'success' : 'reject'
+      status: status === false ? 'success' : 'reject'
     }
 
 
@@ -41,7 +42,7 @@ export default function KycListTableRow({ row, selected, onEditRow, onSelectRow,
 
 
   const { name, userid, createdAt, email, status } = row;
-
+console.log(status, ' == status')
   return (
     <TableRow hover selected={selected}>
       {onSelectRow &&
@@ -58,15 +59,20 @@ export default function KycListTableRow({ row, selected, onEditRow, onSelectRow,
       <TableCell align="left">
         <Typography
           variant="outlined"
-          color={(status === 'success') ? theme.palette.success.dark : theme.palette.error.dark}
+          color={(status === true) ? theme.palette.success.dark : theme.palette.error.dark}
           sx={{ textTransform: 'capitalize' }}
         >
-          {status !== 'pending' ? ((status === 'success') ? 'Accept' : 'Reject') : "Pending"}
+
+         { status === true ? 'Accept' : 'Pending'}
+
         </Typography>
       </TableCell>
       <TableCell align="center">
         <Stack direction="row" spacing={2} sx={{ justifyContent: 'center', fontSize: '13px' }}>
-          <Button variant="outlined" sx={{ fontSize: '13px' }} onClick={(e) => updateKycStatus(status, userid, e)} color={status !== 'pending' ? 'error' : 'info'}>{status !== 'pending' ? 'Reject' : 'Approve'}</Button>
+
+          <Button variant="outlined" sx={{ fontSize: '13px' }} onClick={(e) => updateKycStatus(status, userid, e)} color={status ? 'error' : 'info'}>
+            
+            {status ? 'Reject' : 'Approve'}</Button>
         </Stack>
       </TableCell>
       <TableCell>

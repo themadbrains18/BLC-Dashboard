@@ -93,8 +93,9 @@ const KycUsersList = (props) => {
   const createKycTable=React.useCallback(()=>{
     let alluser = [];
     for (const kyc of kycList) {
-      
-      alluser.push(createData(kyc.name, kyc.user_id, kyc.createdAt, kyc.email, kyc.status));
+     
+
+      alluser.push(createData(kyc.name, kyc.user_id, kyc.createdAt, kyc.email, kyc.isVerified));
     }
     setList(alluser);
   },[kycList])

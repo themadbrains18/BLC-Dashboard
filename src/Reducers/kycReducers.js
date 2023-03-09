@@ -9,9 +9,14 @@ const kycList = (kycList = [], action) => {
       break
     case KYCUPDATE:
       if (action.payload.status === 200) {
+
+        console.log('kyc new data', action.payload.data)
         return kycList = kycList.map((d) => {
-          if (d.userid === action.payload.data[0].userid) {
-            d.isVerified = action.payload.data[0].isVerified
+          console.log("========d", d,action.payload.data)
+
+          if (d.user_id == action.payload.data.user_id) {
+
+            d.isVerified = action.payload.data.isVerified
             return d
           } else {
             return d
