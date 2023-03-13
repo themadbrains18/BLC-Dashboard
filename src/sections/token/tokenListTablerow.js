@@ -40,6 +40,7 @@ export default function TokenListTableRow({ row, selected, onEditRow, onSelectRo
   }
   const { name, fullName, networks, tokenType, image, status, id } = row;
 
+
   return (
     <>
       <TableRow hover selected={selected}>
@@ -50,24 +51,14 @@ export default function TokenListTableRow({ row, selected, onEditRow, onSelectRo
         }
         <TableCell align="left">{name}</TableCell>
         <TableCell>{fullName}</TableCell>
-        {/* <TableCell align="left">
+        <TableCell align="left">
           {(networks!==undefined)&&networks.map((network)=>{
             return (
-                <Box
-                  component="img"
-                  sx={{
-                    height: 23,
-                    width: 35,
-                    maxHeight: { xs: 50, md: 30 },
-                    maxWidth: { xs: 50, md: 30 },
-                  }}
-                  alt="Binance Coin."
-                  src={require(`../../assets/images/${coins[network.networkName]}`)}
-                />
+             <Box>{network.networkName}</Box>
               )
           })}
 
-        </TableCell> */}
+        </TableCell>
         <TableCell align="left">{tokenType} </TableCell>
         <TableCell component="a" href={image} align="left"
           sx={{
@@ -89,7 +80,7 @@ export default function TokenListTableRow({ row, selected, onEditRow, onSelectRo
           </Typography>
         </TableCell>
         <TableCell align="center">
-          <Stack direction="row" spacing={2} sx={{ fontSize: '13px' }}>
+          <Stack direction="row" spacing={2} sx={{justifyContent:'center', fontSize: '13px' }}>
             <Button variant="outlined" sx={{ fontSize: '13px' }} onClick={(e) => updatetokenStatus(status, id, e)} color={status === true ? 'error' : 'info'}>{status === true ? 'Block' : 'Un BLock'}</Button>
           </Stack>
         </TableCell>

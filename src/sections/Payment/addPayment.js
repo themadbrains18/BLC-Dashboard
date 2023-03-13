@@ -83,7 +83,7 @@ const AddPayment = ({ abc, tokenid }) => {
   }
 
   let submitForm = async (data, e) => {
-    console.log("===========data",data);
+    console.log("===========data",data.icon.name);
     e.preventDefault(e)
 
     if (Object.entries(data['paymentFields']).length > 0) {
@@ -108,21 +108,22 @@ const AddPayment = ({ abc, tokenid }) => {
     data['fields'] = data.paymentFields;
 
     //   /** create new record record */
-    let formData = new FormData(e.target);
-    let uploadFiles = formData.get('icon');
-    var reader = new FileReader();
-    reader.readAsDataURL(uploadFiles);
-    reader.onload = function () {
-      data.icon = reader.result;
+    // let formData = new FormData(e.target);
+    // let uploadFiles = formData.get('icon');
+    // var reader = new FileReader();
+    // reader.readAsDataURL(uploadFiles);
+    // reader.onload = function () {
+      data.icon = data.icon.name;
       dispatch(paymentListCreate(data)).then((response) => {
+        reset();
         console.log("response", response)
       }).catch(err => {
         console.log("err", err)
       });
 
-    }
+    // }
 
-    reset();
+  
 
   }
 

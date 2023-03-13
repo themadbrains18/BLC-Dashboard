@@ -12,8 +12,8 @@ import EditModal from "../../Modal/editModal";
 import KycMediaList from "./kycMediaList";
 
 
-function createData(name, userid, createdAt,  email, status) {
-  return { name, userid, createdAt, email,  status };
+function createData(name, userid, createdAt,  email, status, number) {
+  return { name, userid, createdAt, email,  status,number };
 }
 
 const headCells = [
@@ -95,7 +95,7 @@ const KycUsersList = (props) => {
     for (const kyc of kycList) {
      
 
-      alluser.push(createData(kyc.name, kyc.user_id, kyc.createdAt, kyc.email, kyc.isVerified));
+      alluser.push(createData(kyc.name, kyc.user_id, kyc.createdAt, kyc.email, kyc.isVerified, kyc.number));
     }
     setList(alluser);
   },[kycList])

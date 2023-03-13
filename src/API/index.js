@@ -71,6 +71,6 @@ export const orderListRequestApi = () => API.get('/admin/order/all')
 /**
  * Payment Requests
  */
-export const paymentListCreateApi = (data) => API.post('/payment/save',data)
-export const paymentListRequestApi = () => API.get('/payment/pm_methods')
+export const paymentListCreateApi = (data) => API.post('/admin/payment/save',data)
+export const paymentListRequestApi = () => API.get('/admin/payment/pm_methods')
 

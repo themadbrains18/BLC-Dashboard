@@ -21,6 +21,7 @@ export const paymentListCreate = (params) => async (dispatch) => {
         return data;
       }
       else {
+        notify.error("Payment Method Already Exists..");
         return data;
       }
     }

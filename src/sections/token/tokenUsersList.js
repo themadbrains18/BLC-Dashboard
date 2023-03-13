@@ -58,11 +58,11 @@ const headCells = [
     label: 'Action',
     align: 'center'
   },
-  // {
-  //   id: 'edit',
-  //   disablePadding: false,
-  //   label: '',
-  // },
+  {
+    id: 'edit',
+    disablePadding: false,
+    label: '',
+  },
 
 ];
 

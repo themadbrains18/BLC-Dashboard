@@ -6,7 +6,7 @@ const paymentList = (paymentList = [], action) => {
     case PAYMENTLIST:
       
       if (action.payload.status === 200) {
-        return action.payload.result
+        return action.payload.data
       }
     break;
 

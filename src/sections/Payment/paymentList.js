@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 
 export default function PaymentList() {
     const paymentList = useSelector((state) => state.paymentList);
+    console.log("============paymentList",paymentList);
     return (
     <>
         <Box sx={{
