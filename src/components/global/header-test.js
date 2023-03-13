@@ -311,7 +311,7 @@ export default function MiniDrawer({ pageContent }) {
           <Box>
             <ListItemButton component={Link} to='/dashboard'>
               <ListItemIcon sx={{ color: "#fff", display: "flex", alignItems: "center", gap: "10px" }}>
-                <img src={Logo} alt='Prime Experia' width={75}></img>
+                <img src={Logo} alt='BLC Exchange' width={75}></img>
                 {/* <img src={Text} alt=''></img> */}
               </ListItemIcon>
             </ListItemButton>
