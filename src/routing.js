@@ -36,7 +36,7 @@ export default function Routing() {
         <Route exact path="/token" element={ <Token /> }></Route>
         <Route exact path="/token/add-new" element={ <TokenAdd /> }></Route>
         <Route exact path="/token/edit/:id" element={ <TokenEdit /> }></Route>
-        <Route exact path="/*" element={ <PageNotFound /> }></Route>
+        {/* <Route exact path="/*" element={ <PageNotFound /> }></Route> */}
 
       </Routes>
   );
