@@ -14,8 +14,8 @@ import TokenForm from "./tokenForm";
 import { useNavigate, Link } from "react-router-dom";
 
 
-function createData(name, fullName, networks, tokenType, image, status, _id) {
-  return { name, fullName, networks, tokenType, image, status, _id };
+function createData(name, fullName, networks, tokenType, image, status, id) {
+  return { name, fullName, networks, tokenType, image, status, id };
 }
 
 const headCells = [
@@ -58,11 +58,11 @@ const headCells = [
     label: 'Action',
     align: 'center'
   },
-  {
-    id: 'edit',
-    disablePadding: false,
-    label: '',
-  },
+  // {
+  //   id: 'edit',
+  //   disablePadding: false,
+  //   label: '',
+  // },
 
 ];
 
@@ -98,7 +98,7 @@ const TokenUsersList = () => {
   const createTokenTable = React.useCallback(() => {
     let alluser = [];
     for (const token of tokensList) {
-      alluser.push(createData(token.symbol, token.fullName, token.networks, token.tokenType, token.image, token.status, token._id));
+      alluser.push(createData(token.symbol, token.fullName, token.networks, token.tokenType, token.image, token.status, token.id));
     }
     setList(alluser);
   }, [tokensList])
@@ -111,7 +111,6 @@ const TokenUsersList = () => {
 
   const abc = (status, tokenId) => {
     redirect(`/token/edit/${tokenId}`)
-
   }
 
   const handleDeleteRows = (selected) => {

@@ -64,7 +64,7 @@ const ActiveUserList = () => {
   const createTable = React.useCallback(() => {
     let userData = [];
     let activeUser = userList.filter((item) => {
-      return item.kycstatus === true
+      return item.kycstatus === 'success'
     })
     for (const user of activeUser) {
       userData.push(createData(user.id, user.email,user.dial_code, user.number,user.UID));

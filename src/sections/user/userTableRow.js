@@ -42,9 +42,8 @@ export default function UserTableRow({ row, selected, onEditRow, onSelectRow, on
           {userid}
         </Typography>
       </TableCell>
-      <TableCell align="left">{dial_code}</TableCell>
       <TableCell align="left">{email}</TableCell>
-
+      <TableCell align="left">{dial_code}</TableCell>
       <TableCell align="left">
         {number}
       </TableCell>

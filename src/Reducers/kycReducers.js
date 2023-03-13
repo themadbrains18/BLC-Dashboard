@@ -6,16 +6,16 @@ const kycList = (kycList = [], action) => {
       if (action.payload.status === 200) {
         return action.payload.data
       }
-      break
+    break
+
+   
+
     case KYCUPDATE:
       if (action.payload.status === 200) {
 
         console.log('kyc new data', action.payload.data)
         return kycList = kycList.map((d) => {
-          console.log("========d", d,action.payload.data)
-
           if (d.user_id == action.payload.data.user_id) {
-
             d.isVerified = action.payload.data.isVerified
             return d
           } else {

@@ -96,7 +96,7 @@ const DepositTableList = (props) => {
     let coins = [];
      
     for (const token of tokenList) {
-      coins.push(token.coinName)
+      coins.push(token.symbol)
     }
     setCoinList(coins)
   
@@ -106,10 +106,10 @@ const DepositTableList = (props) => {
     setList(alluser);
   },[depositList, tokenList])
 
-  // useEffect(() => {
-  //   createDepositTable()
+  useEffect(() => {
+    createDepositTable()
 
-  // }, [createDepositTable])
+  }, [createDepositTable])
 
 
   const handleDeleteRows = (selected) => {

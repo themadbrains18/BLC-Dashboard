@@ -40,12 +40,12 @@ export const marketCoinRequestAPI=()=>{
 /**
  * Deposit Requests
  */
-export const depositListRequestApi = () => API.get('/admin/deposit/all')
+export const depositListRequestApi = () => API.get('/admin/deposit')
 
 /**
  * Withdraw Requests
  */
-export const withdrawListRequestApi = () => API.get('/admin/withdraw/all')
+export const withdrawListRequestApi = () => API.get('/admin/withdraw')
 
 /**
  * Kyc Requests
@@ -59,7 +59,7 @@ export const kycStatusUpdate =(userid,data) => API.put(`/admin/kyc/kycupdate/${u
 export const tokenListRequestApi=()=>API.get('/admin/token')
 export const tokenList =(data) => API.post('/admin/token/create', data)
 export const tokenUpdate =(tokenid,data) => API.put(`/admin/token/update/${tokenid}`, data)
-export const tokenGetById =(tokenid) => API.get(`/admin/token/${tokenid}`)
+export const tokenGetById =(tokenid) => API.get(`/admin/token/getToken/${tokenid}`)
 export const tokenStatusUpdate =(data) => API.post('/admin/token/tokenupdate', data)
 
 

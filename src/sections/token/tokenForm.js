@@ -52,7 +52,7 @@ const TokenForm = ({ abc, tokenid }) => {
   const redirect = useNavigate()
 
   const [emptyData, SetEmptyData] = useState({
-    coinName: '',
+    symbol: '',
     confirmations: 0,
     decimals: 0,
     image: '',
@@ -73,33 +73,33 @@ const TokenForm = ({ abc, tokenid }) => {
     if (tokenid !== '') {
       ; (async () => {
         let data = await dispatch(gettokenbyid(tokenid))
-
+        let networkList =JSON.parse(data.data.networks)
         let group = {}
         let openField = open
 
-        if (data[0].networks.length > 0) {
-          data[0].networks.forEach((ele, index) => {
-            open[ele._id] = true
+        if (networkList.length > 0) {
+          networkList.forEach((ele, index) => {
+            open[ele.id] = true
 
-            setValue(ele._id, true);
-            setValue(`networks.${ele._id}.abi`, ele?.abi)
-            setValue(`networks.${ele._id}.contract`, ele?.contract)
-            setValue(`networks.${ele._id}.decimalNum`, ele?.decimalNum)
-            setValue(`networks.${ele._id}.fee`, ele?.fee)
+            setValue(ele.id, true);
+            setValue(`networks.${ele.id}.abi`, ele?.abi)
+            setValue(`networks.${ele.id}.contract`, ele?.contract)
+            setValue(`networks.${ele.id}.decimalNum`, ele?.decimal)
+            setValue(`networks.${ele.id}.fee`, ele?.fee)
 
-            group[ele._id] = {
+            group[ele.id] = {
               abi: ele?.abi,
               contract: ele?.contract,
-              decimalNum: ele?.decimalNum,
+              decimal: ele?.decimal,
               fee: ele?.fee
             }
 
           })
         }
-        data[0].networks = group
+        networkList = group
         setOpen(openField)
-        SetEmptyData(data[0])
-        Object.entries(data[0]).forEach(entry => {
+        SetEmptyData(data.data)
+        Object.entries(data.data).forEach(entry => {
           const [key, value] = entry;
           if (key === 'networks') return;
           console.log(key, value);
@@ -119,7 +119,7 @@ const TokenForm = ({ abc, tokenid }) => {
 
 
   const schema = yup.object().shape({
-    coinName: yup.string().required('This field is required'),
+    symbol: yup.string().required('This field is required'),
     confirmations: yup.number().positive().typeError('Amount must be a number'),
     decimals: yup.number().positive().typeError('Amount must be a number'),
     image: yup.mixed().required('Image is required'),
@@ -305,13 +305,13 @@ const TokenForm = ({ abc, tokenid }) => {
                   id="coinName"
                   label="Coin Name"
                   fullWidth
-                  defaultValue={emptyData?.coinName}
+                  defaultValue={emptyData?.symbol}
                   margin="dense"
                   InputLabelProps={{
                     shrink: true,
                   }}
-                  {...register('coinName')}
-                  error={errors.coinName ? true : false}
+                  {...register('symbol')}
+                  error={errors.symbol ? true : false}
                 />
               </>
             ) : (

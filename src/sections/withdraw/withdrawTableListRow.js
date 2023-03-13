@@ -19,7 +19,8 @@ WithdrawListTableRow.propTypes = {
 export default function WithdrawListTableRow({ row, selected, onEditRow, onSelectRow, onDeleteRow }) {
   const theme = useTheme();
 
-  const { Symbol, networkName, createdAt, tx_hash, requestedAmount, withdraw_wallet, successful } = row;
+  const { symbol, tokenName, createdAt, tx_hash, requestedAmount, withdraw_wallet, status } = row;
+
 
   return (
     <TableRow hover selected={selected}>
@@ -28,8 +29,8 @@ export default function WithdrawListTableRow({ row, selected, onEditRow, onSelec
           <Checkbox checked={selected} onClick={onSelectRow} />
         </TableCell>
       }
-      <TableCell align="left" sx={{ fontSize: '14px' }}>{Symbol}</TableCell>
-      <TableCell>{networkName}</TableCell>
+      <TableCell align="left" sx={{ fontSize: '14px' }}>{symbol}</TableCell>
+      <TableCell>{tokenName}</TableCell>
 
       <TableCell align="left" sx={{ fontSize: '12px' }}>{moment(createdAt).format('Y/MM/DD HH:mm:ss')}</TableCell>
       <TableCell align="left" sx={{
@@ -47,17 +48,18 @@ export default function WithdrawListTableRow({ row, selected, onEditRow, onSelec
         maxWidth: '180px',
         whiteSpace: 'nowrap',
         overflow: 'hidden',
-        textOverflow: 'ellipsis'
+        textOverflow: 'ellipsis',
+        textAlign:'center'
       }}>
         {withdraw_wallet !== undefined && withdraw_wallet}
       </TableCell>
       <TableCell align="left" sx={{ fontSize: '12px' }}>
         <Typography
           variant="outlined"
-          color={(successful === 'true') ? theme.palette.success.dark :  theme.palette.error.dark}
+          color={(status === 'success') ? theme.palette.success.dark :  theme.palette.error.dark}
           sx={{ textTransform: 'capitalize', fontSize: '14px' }}
         >
-          {successful==='true'?'Success':'Failed'}
+          {status==='success'?'Success' : (status === 'pending' ? 'Pending':'Failed')}
         </Typography>
       </TableCell>
 

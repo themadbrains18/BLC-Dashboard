@@ -68,7 +68,7 @@ export default function UserListTableRow({ row, selected, onEditRow, onSelectRow
           {UID}
         </TableCell>
         <TableCell align="left">
-          {kycstatus!==null?(kycstatus!== 'pending' ? "Success": 'Pending'):''}
+          {kycstatus!=='NA'?(kycstatus!== 'pending' ? (kycstatus === 'reject'?'Reject' : "Success"): 'Pending'):'Not Applied'}
         </TableCell>
         <TableCell align="left">{moment(created).format('Y/MM/DD HH:mm:ss')}</TableCell>
        

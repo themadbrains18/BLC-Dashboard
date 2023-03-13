@@ -30,15 +30,15 @@ const coins = {
 export default function TokenListTableRow({ row, selected, onEditRow, onSelectRow, onDeleteRow, abc }) {
   const theme = useTheme();
   const dispatch = useDispatch()
-  const updatetokenStatus = async (status, _id, e) => {
+  const updatetokenStatus = async (status, id, e) => {
     e.preventDefault();
     let data = {
-      tokenid: _id,
+      tokenid: id,
       status: status === true ? false : true
     }
     await dispatch(tokenStatusUpdateRequest(data));
   }
-  const { name, fullName, networks, tokenType, image, status, _id } = row;
+  const { name, fullName, networks, tokenType, image, status, id } = row;
 
   return (
     <>
@@ -89,13 +89,13 @@ export default function TokenListTableRow({ row, selected, onEditRow, onSelectRo
           </Typography>
         </TableCell>
         <TableCell align="center">
-          <Stack direction="row" spacing={2} sx={{ justifyContent: 'center', fontSize: '13px' }}>
-            <Button variant="outlined" sx={{ fontSize: '13px' }} onClick={(e) => updatetokenStatus(status, _id, e)} color={status === true ? 'error' : 'info'}>{status === true ? 'Block' : 'Un BLock'}</Button>
+          <Stack direction="row" spacing={2} sx={{ fontSize: '13px' }}>
+            <Button variant="outlined" sx={{ fontSize: '13px' }} onClick={(e) => updatetokenStatus(status, id, e)} color={status === true ? 'error' : 'info'}>{status === true ? 'Block' : 'Un BLock'}</Button>
           </Stack>
         </TableCell>
 
         <TableCell padding="checkbox">
-          <IconButton aria-label="edit" onClick={() => abc(true, _id)} >
+          <IconButton aria-label="edit" onClick={() => abc(true, id)} >
             <EditIcon />
           </IconButton>
 

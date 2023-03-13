@@ -54,10 +54,10 @@ export default function DepositListTableRow({ row, selected, onEditRow, onSelect
       <TableCell align="left" sx={{ fontSize: '12px' }}>
         <Typography
           variant="outlined"
-          color={(successful === 'true') ? theme.palette.success.dark :  theme.palette.error.dark}
+          color={(successful === '1') ? theme.palette.success.dark :  theme.palette.error.dark}
           sx={{ textTransform: 'capitalize', fontSize: '14px' }}
         >
-          {successful==='true'?'Success':'Failed'}
+          {successful==='1'?'Success':'Failed'}
         </Typography>
       </TableCell>
 

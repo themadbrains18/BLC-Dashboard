@@ -11,19 +11,19 @@ import { TableHeadCustom, TableEmptyRows, TableSelectedActions } from "../../com
 import WithdrawTableListRow from "./withdrawTableListRow";
 import FilterListIcon from '@mui/icons-material/FilterList';
 
-function createData(Symbol, networkName, createdAt, tx_hash, requestedAmount, withdraw_wallet, successful) {
-  return { Symbol, networkName, createdAt, tx_hash, requestedAmount, withdraw_wallet, successful };
+function createData(symbol, tokenName, createdAt, tx_hash, requestedAmount, withdraw_wallet, status) {
+  return { symbol, tokenName, createdAt, tx_hash, requestedAmount, withdraw_wallet, status };
 }
 
 const headCells = [
   {
-    id: 'Symbol',
+    id: 'symbol',
     numeric: true,
     disablePadding: false,
     label: 'Coin',
   },
   {
-    id: 'networkName',
+    id: 'tokenName',
     numeric: false,
     disablePadding: true,
     label: 'Network',
@@ -54,7 +54,7 @@ const headCells = [
     align: 'center'
   },
   {
-    id: 'successful',
+    id: 'status',
     numeric: true,
     disablePadding: false,
     label: 'Status',
@@ -97,11 +97,11 @@ const WithdrawTableList = (props) => {
    let coins = [];
 
    for (const token of tokenList) {
-     coins.push(token.coinName)
+     coins.push(token.symbol)
    }
    setCoinList(coins)
    for (const withdraw of withdrawList) {
-     alluser.push(createData(withdraw.Symbol, withdraw.networkName, withdraw.createdAt, withdraw.tx_hash, withdraw.requestedAmount, withdraw.withdraw_wallet, withdraw.successful));
+     alluser.push(createData(withdraw.symbol, withdraw.tokenName, withdraw.createdAt, withdraw.tx_hash, withdraw.requestedAmount, withdraw.withdraw_wallet, withdraw.status));
    }
    setList(alluser);
   },[tokenList,withdrawList])
@@ -129,7 +129,7 @@ const WithdrawTableList = (props) => {
       handleClose()
     }
     else {
-      const filterRow = withdrawList.filter((row) => (row.coinName === e.e))
+      const filterRow = withdrawList.filter((row) => (row.symbol === e.e))
       setList(filterRow);
       handleClose()
     }
